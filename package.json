@@ -1,0 +1,21 @@
+{
+  "name": "playwright-lab-saucedemo",
+  "version": "1.0.0",
+  "description": "Laboratorio paso a paso: grabación (codegen) de Playwright contra saucedemo.com",
+  "scripts": {
+    "record": "playwright codegen https://www.saucedemo.com/",
+    "record:ts": "playwright codegen --target=playwright-test -o tests/grabado.spec.ts https://www.saucedemo.com/",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report",
+    "install:browsers": "playwright install"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.0"
+  }
+}

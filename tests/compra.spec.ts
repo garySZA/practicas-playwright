@@ -22,3 +22,4 @@ test('test', async ({ page }) => {
   await page.locator('[data-test="finish"]').click();
   await expect(page.locator('[data-test="complete-header"]')).toContainText('Thank you for your order!');
 });
+

@@ -1,5 +1,5 @@
 {
-    "include":	["tests/**/*.ts",	"pages/**/*.ts",	"newman.d.ts"],
+    "include":	["tests/**/*.ts",	"tests/web/pages/**/*.ts",	"newman.d.ts"],
     "compilerOptions": {
         "target": "ES2020",
         "module": "commonjs",

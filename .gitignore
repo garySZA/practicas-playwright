@@ -7,4 +7,11 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 
+# ALLURE
+/allure-report/
+/allure-results/
+
 *.lock.json
+*.lock
+
+.env

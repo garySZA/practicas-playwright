@@ -4,10 +4,10 @@ import { ApiClient } from '../pages/ApiClient';
 
 
 test.describe('API testing: ejemplo básico', () => {
-  test('GET a una API pública', async ({ request }) => {
-    const respuesta = await request.get('https://jsonplaceholder.typicode.com/users/1');    
-    expect(respuesta.ok()).toBeTruthy();
-    expect(respuesta.status()).toBe(200);   
+    test('GET a una API pública', async ({ request }) => {
+        const respuesta = await request.get('https://jsonplaceholder.typicode.com/users/1');    
+        expect(respuesta.ok()).toBeTruthy();
+        expect(respuesta.status()).toBe(200);   
     });
 });
 
@@ -53,7 +53,7 @@ test.describe('API testing: ejemplo básico con ApiClient', () => {
 
 test.describe('API testing: ejemplo básico con  helper', () => {
     test('eliminarPost elimina un recurso', async ({ request }) => {
-        const api = new ApiClient(request);
+        
         const respuesta = await request.delete('https://jsonplaceholder.typicode.com/posts/1');
         expect(respuesta.ok()).toBeTruthy();
     });

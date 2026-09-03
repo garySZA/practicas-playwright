@@ -11,46 +11,46 @@
 import { APIRequestContext, APIResponse } from '@playwright/test';
 
 export interface UsuarioAPI {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
+    id: number;
+    name: string;
+    username: string;
+    email: string;
 }
 
 export interface PostAPI {
-  id?: number;
-  title: string;
-  body: string;
-  userId: number;
+    id?: number;
+    title: string;
+    body: string;
+    userId: number;
 }
 
 export class ApiClient {
-  readonly request: APIRequestContext;
-  readonly baseURL = 'https://jsonplaceholder.typicode.com';
+    readonly request: APIRequestContext;
+    readonly baseURL = 'https://jsonplaceholder.typicode.com';
 
-  constructor(request: APIRequestContext) {
-    this.request = request;
-  }
-
-  async obtenerUsuario(id: number): Promise<UsuarioAPI> {
-    const respuesta: APIResponse = await this.request.get(`${this.baseURL}/users/${id}`);
-    if (!respuesta.ok()) {
-      throw new Error(`No se pudo obtener el usuario ${id}: status ${respuesta.status()}`);
+    constructor(request: APIRequestContext) {
+        this.request = request;
     }
-    return respuesta.json();
-  }
 
-  async crearPost(post: PostAPI): Promise<PostAPI> {
-    const respuesta: APIResponse = await this.request.post(`${this.baseURL}/posts`, {
-      data: post,
-    });
-    if (respuesta.status() !== 201) {
-      throw new Error(`No se pudo crear el post: status ${respuesta.status()}`);
+    async obtenerUsuario(id: number): Promise<UsuarioAPI> {
+        const respuesta: APIResponse = await this.request.get(`${this.baseURL}/users/${id}`);
+        if (!respuesta.ok()) {
+            throw new Error(`No se pudo obtener el usuario ${id}: status ${respuesta.status()}`);
+        }
+        return respuesta.json();
     }
-    return respuesta.json();
-  }
 
-  async eliminarPost(id: number): Promise<APIResponse> {
-    return this.request.delete(`${this.baseURL}/posts/${id}`);
-  }
+    async crearPost(post: PostAPI): Promise<PostAPI> {
+        const respuesta: APIResponse = await this.request.post(`${this.baseURL}/posts`, {
+            data: post,
+        });
+        if (respuesta.status() !== 201) {
+            throw new Error(`No se pudo crear el post: status ${respuesta.status()}`);
+        }
+        return respuesta.json();
+    }
+
+    async eliminarPost(id: number): Promise<APIResponse> {
+        return this.request.delete(`${this.baseURL}/posts/${id}`);
+    }
 }

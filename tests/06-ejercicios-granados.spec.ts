@@ -118,7 +118,7 @@ test.describe('Ejercicios de grabación', () => {
         await page.locator('[data-test="login-button"]').click();
         // 👉 Continúa el flujo grabando tus propias acciones
         await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
-    // 👉 Toma una captura con page.screenshot({ path: 'test-results/bug-visual.png' })
+        // 👉 Toma una captura con page.screenshot({ path: 'test-results/bug-visual.png' })
         await page.screenshot({ path: 'test-results/bug-visual.png', fullPage: true });
     });
     // ------------------------------------------------------------
@@ -129,4 +129,4 @@ test.describe('Ejercicios de grabación', () => {
         await loginPage.go();
         await loginPage.login(USUARIOS.conProblemas, PASSWORD);   
     });
-    });
+});

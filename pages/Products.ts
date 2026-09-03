@@ -1,10 +1,10 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 
 export type OrdenProductos =
     | 'az'
     | 'za'
     | 'lohi'
-    | 'hilo'
+    | 'hilo';
 
 export class ProductsPage {
     readonly productos: Locator;

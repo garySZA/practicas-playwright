@@ -40,11 +40,11 @@ test.describe('API testing: fundamentos (sin helper)', () => {
 
     test('POST enviando un body JSON', async ({ request }) => {
         const respuesta = await request.post('https://jsonplaceholder.typicode.com/posts', {
-        data: {
-            title: 'Mi primer post de prueba',
-            body: 'Contenido de prueba generado desde Playwright',
-            userId: 1,
-        },
+            data: {
+                title: 'Mi primer post de prueba',
+                body: 'Contenido de prueba generado desde Playwright',
+                userId: 1,
+            },
         });
 
         expect(respuesta.status()).toBe(201); // 201 Created
@@ -71,9 +71,9 @@ test.describe('API testing: refinado con ApiClient', () => {
         const api = new ApiClient(request);
 
         const nuevoPost = await api.crearPost({
-        title: 'Reseña de Sauce Labs Backpack',
-        body: 'Excelente para llevar la laptop al trabajo.',
-        userId: 3,
+            title: 'Reseña de Sauce Labs Backpack',
+            body: 'Excelente para llevar la laptop al trabajo.',
+            userId: 3,
         });
 
         expect(nuevoPost.title).toBe('Reseña de Sauce Labs Backpack');
@@ -85,9 +85,9 @@ test.describe('API testing: refinado con ApiClient', () => {
         const ids = [1, 2, 3];
 
         for (const id of ids) {
-        const usuario = await api.obtenerUsuario(id);
-        expect(usuario.id).toBe(id);
-        expect(usuario.username).toBeTruthy();
+            const usuario = await api.obtenerUsuario(id);
+            expect(usuario.id).toBe(id);
+            expect(usuario.username).toBeTruthy();
         }
     });
 });

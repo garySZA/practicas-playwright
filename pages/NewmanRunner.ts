@@ -12,13 +12,13 @@ export function  correrNewman(nombreCarpeta: string): Promise<any> {
             reporters: []
         },
         function (error: any, resumen: any){
-            if(error){
+            if (error){
                 reject(error);
                 return;
             }
 
             resolve(resumen);
         }
-    )
-    })
+        );
+    });
 }
